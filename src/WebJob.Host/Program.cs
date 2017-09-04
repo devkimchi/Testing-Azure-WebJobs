@@ -1,4 +1,7 @@
-﻿using WebJob.Functions.JobHostBuilder;
+﻿using Aliencube.WebJobActivator.Autofac;
+using Aliencube.WebJobActivator.Core;
+
+using WebJob.Functions;
 
 namespace WebJob.Host
 {
@@ -11,9 +14,10 @@ namespace WebJob.Host
     public static class Program
     {
         /// <summary>
-        /// Gets or sets the <see cref="IWebJobHostBuilder"/> instance.
+        /// Gets or sets the <see cref="IJobHostBuilder"/> instance.
         /// </summary>
-        public static IWebJobHostBuilder WebJobHost { get; set; } = new WebJobHostBuilder();
+        public static IJobHostBuilder WebJobHost { get; set; } = new AutofacJobHostBuilder(new WebJobModule())
+                                                                     .AddConfiguration(p => p.UseDevelopmentSettingsIfNecessary());
 
         /// <summary>
         /// Runs the Azure WebJob instance.

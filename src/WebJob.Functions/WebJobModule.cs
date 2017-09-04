@@ -4,12 +4,12 @@ using Autofac;
 
 using WebJob.Settings;
 
-namespace WebJob.Functions.JobActivator
+namespace WebJob.Functions
 {
     /// <summary>
     /// This represents the module entity for Autofac to register dependencies.
     /// </summary>
-    public class AppModule : Module
+    public class WebJobModule : Module
     {
         /// <inheritdoc />
         protected override void Load(ContainerBuilder builder)

@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
+﻿using Aliencube.WebJobActivator.Core;
+
+using FluentAssertions;
 
 using Moq;
-
-using WebJob.Functions.JobHostBuilder;
 
 using Xunit;
 
@@ -19,7 +19,7 @@ namespace WebJob.Host.Tests
         [Fact]
         public void Given_WebJobHostBuilder_Main_ShouldReturn_Result()
         {
-            var builder = new Mock<IWebJobHostBuilder>();
+            var builder = new Mock<IJobHostBuilder>();
             builder.SetupProperty(p => p.IsRunning);
 
             Program.WebJobHost = builder.Object;
